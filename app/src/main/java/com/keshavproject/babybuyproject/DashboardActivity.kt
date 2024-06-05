@@ -1,20 +1,21 @@
 package com.keshavproject.babybuyproject
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.google.firebase.auth.FirebaseAuth
 
-class MainActivity : AppCompatActivity() {
-
-    private lateinit var auth : FirebaseAuth
+class DashboardActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_dashboard)
 
+        val receivedEmail = intent.getStringExtra(AppConstants.KEY_ENTERED_EMAIL)
+        Toast.makeText(this@DashboardActivity, "Received Email::".plus(receivedEmail), Toast.LENGTH_SHORT
+        ).show()
 
     }
 }
